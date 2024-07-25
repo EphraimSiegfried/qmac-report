@@ -1,0 +1,14 @@
+\section*{Failed Attempts}
+
+% SHORT
+% Embedded Programing, Why duty cycling is important, a lot about breaking asymetry wisely in peer-to-peer networks
+
+I have dedicated considerable time to making the sending and receiving of packets fully interrupt-based, eliminating the need for blocking functions like run() or synchronize(). Unfortunately, this approach failed due to a watchdog timeout, which prevents interrupt service routines (ISR) from consuming excessive CPU time. As a result, the device entered an endless reboot loop. Attempts to extend the allowable ISR duration also failed and seemed not optimal. \\
+
+I also tried implementing Carrier Sense Multiple Access (CSMA). In this approach, nodes in the active state would listen for signals and only send queued packets if no signals were detected. While this method didn't trigger watchdog timeouts, it led to a deadlock similar issue: nodes would send few to no messages because they frequently sensed signals on the channel. Due to its ineffectiveness, I returned to my initial implementation, which used the randomized slot allocation method. \\
+
+\section*{Lessons Learned}
+
+The most challenging aspect of this project was designing a MAC protocol, as I had no prior experience with low-level protocols. There are many MAC protocols to consider, and as I read about methods for clock synchronization and packet scheduling, I realized the complexity of the issue and the difficulty in evaluating the best approach. Implementing a decentralized method was particularly challenging, especially in breaking the symmetry in the behavior of nodes using the same code. I addressed this, although not very efficiently, by incorporating randomness in elements such as the sleeping phases during synchronization and slot allocation.\\
+
+Another significant challenge was working with the hardware. I ordered three TTGO T-Beams v1.1, and two were malfunctioning. After replacing one faulty board, I received another defective one. Identifying the root of the problems was difficult, as the board would reboot on encountering errors and display unhelpful text. Additionally, the library documentation was poor, with outdated or incorrect information. These frustrating hours of debugging taught me that I do not wish to pursue embedded software engineering in the future.

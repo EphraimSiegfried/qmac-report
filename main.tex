@@ -1,0 +1,34 @@
+\documentclass[titlepage]{article}
+\usepackage{times}
+\usepackage[nohead,bottom=3cm,top=2cm,a4paper]{geometry}
+% \usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+% \usepackage{enumitem}
+% \setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\addbibresource{refs.bib}
+\setlength{\parindent}{0em}
+\title{QMAC: A MAC Protocol for LoRa Devices \\
+\vspace{\baselineskip}
+\large Distributed Programming \& Internet Architecture}
+
+\author{Ephraim Siegfried}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{arabic}
+\input{content/01_introduction_problem}
+\input{content/02_research}
+\pagebreak
+\input{content/03_implementation}
+\pagebreak
+\input{content/04_results}
+\input{content/05_lessons_learned}
+\input{content/06_conclusion}
+\pagebreak
+\input{content/07_declaration}
+\end{document}

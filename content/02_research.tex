@@ -1,0 +1,28 @@
+\section*{Related Work}
+
+% List Materials used
+
+% Explain types of MAC protocols:
+% synchronous
+% asynchronous
+
+% Mention the papers that inspired us:
+% Contiki Mac (Ducy paper)
+% TSMP
+% Gradient Clock Synchronization in Wireless Sensor Networks
+
+% Explain two major challenges:
+% scheduling packets when active
+% synchronization
+
+This project was inspired from three papers, which will be briefly discussed in this chapter. While these protocols are quite extensive, only the aspects relevant to the QMAC protocol are highlighted here. Wireless sensor MAC protocols can be categorized into synchronous and asynchronous protocols.\\
+
+In synchronous protocols, nodes rely on a common time reference for scheduling data transmission and reception. The TSMP protocol is an example of a synchronous protocol where time and frequencies are divided into slots. A master node informs other nodes which slots they can use to transmit data. This avoids signal interference. Timing information for synchronization is included in every ACK packet and is regularly propagated throughout the network by the master node.\cite{TSMP}\\
+
+In asynchronous MAC protocols, nodes do not rely on a common time reference and independently decide when to access the communication medium. The Contiki MAC protocol is an example of this approach, where nodes periodically wake up and sense the channel for activity (clear channel assessment - CCA). If the channel is busy, they enter receive mode and send ACK packets once they receive a packet intended for them. If a node has packets for a specific destination, it transmits the packet until an acknowledgment is received; otherwise, the node returns to sleep mode. For broadcast messages, acknowledgment packets are not sent.\\
+
+A critical challenge in synchronous protocols is ensuring that each node in the network maintains the same sense of time. As mentioned, the TSMP protocol achieves this through a leader node that updates other nodes. Decentralized methods, such as the Gradient Time Synchronization Protocol (GTSP), also address this challenge. In GTSP, there is no reference node. Instead, nodes periodically broadcast packets with timestamps of their logical clock. Upon receiving these packets, a node adjusts its clock by calculating the average clock value/rate of all neighbors, including its own clock. Over time, and after several such broadcasts, the nodes will approximately synchronize their logical clocks.
+
+
+
+

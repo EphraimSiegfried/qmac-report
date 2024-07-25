@@ -1,0 +1,8 @@
+\section*{Introduction}
+
+% Say why duty cycling is important:
+% energy saving and 1% rule
+% Say that we have implemented a MAC protocol in c++ which handles duty cycling LoRa Devices.
+The use of LoRa (Long Range) communication in IoT (Internet of Things) devices offers significant advantages due to its extended wireless range and low power consumption compared to other communication methods. However, a common issue with IoT devices is their reliance on limited power sources, which can lead to battery depletion over time. Additionally, LoRa devices in Europe face the regulatory constraint of being allowed to transmit only 1\% of the time, necessitating efficient duty cycling to manage this limitation. \\
+
+In light of these challenges, this project implements a Medium Access Protocol (MAC), named QMAC, designed to handle duty cycling for LoRa devices. The QMAC protocol incorporates a duty cycle algorithm that coordinates the sleep and communication schedules of network nodes, ensuring that LoRa modules, which typically consume the most power, are synchronized to enhance energy efficiency while maintaining effective communication. The project provides a C++ library that allows users to send and receive messages, abstracting the complexities of duty cycling and synchronization.
